@@ -1,0 +1,5 @@
+sls create -t aws-nodejs -p sls-mongodb-demo        
+
+
+sls deploy -v
+sls invoke --function {function name}

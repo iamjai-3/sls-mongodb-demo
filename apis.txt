@@ -1,0 +1,5 @@
+  POST - https://xlwbdou5pj.execute-api.us-east-1.amazonaws.com/dev/todos
+  GET - https://xlwbdou5pj.execute-api.us-east-1.amazonaws.com/dev/todos/{id}
+  GET - https://xlwbdou5pj.execute-api.us-east-1.amazonaws.com/dev/todos
+  PUT - https://xlwbdou5pj.execute-api.us-east-1.amazonaws.com/dev/todos/{id}
+  DELETE - https://xlwbdou5pj.execute-api.us-east-1.amazonaws.com/dev/todos/{id}
