@@ -1,12 +1,14 @@
 sls create -t aws-nodejs -p sls-mongodb-demo        
 
 
-sls deploy -v
+sls deploy 
 sls invoke --function {function name}
 
 docker-compose up
 http://localhost:4566/health  checks all services are running
 
+list local bucket files
+aws --endpoint-url http://localhost:4566/ s3 ls   
 
 INSTALL SERVERLESS PACKAGE
 npm i -g serverless
@@ -24,7 +26,7 @@ TO INVOKE AND EXECUTE AN FUNCTION
 sls invoke -f hello -l
 
 TO DEPLOY AN FUNCTION ALONE 
- 
+sls deploy -f hello 
 
 TO FETCH LOGS OF FUNCTION
 sls logs -f hello -t 
@@ -45,3 +47,20 @@ aws --endpoint-url http://localhost:4566/ s3 cp cmds.txt s3://iamjai-dev
 
 LIST LOCAL S3-BUCKET
 aws --endpoint-url http://localhost:4566/ s3 ls s3://iamjai-dev 
+
+serverless deploy
+
+
+aws --endpoint-url http://localhost:4566/ s3 mb s3://sls-test --region=ap-south-1
+aws --endpoint-url http://localhost:4566/ s3 cp .\apis.zip s3://sls-test
+aws --endpoint-url http://localhost:4566/ s3 ls s3://sls-test
+
+terraform init
+terraform fmt  -> to format tf files
+terraform validate
+terraform apply --auto-approve 
+
+
+aws --endpoint-url http://localhost:4566/ lambda invoke --function-name=getFunc  output.txt
+
+docker build . -t terraformTest

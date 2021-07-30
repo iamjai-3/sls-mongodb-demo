@@ -3,6 +3,7 @@ version: "3"
 services:
   localstack:
     image: localstack/localstack:latest
+    command: npm install
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566

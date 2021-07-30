@@ -1,0 +1,30 @@
+
+TO BUILD DOCKER IMAGE:           docker build -t "image_name" .	
+	
+
+TO ENTER CONTAINER:              docker run it "imagename" /bin/bash
+	
+
+LIST ALL CONTAINERS (ONLY IDS):  docker ps -aq	
+	
+
+STOP ALL RUNNING CONTAINERS:     docker stop $(docker ps -aq)	
+	
+	
+REMOVE ALL CONTAINERS:           docker rm $(docker ps -aq)
+	
+	
+REMOVE ALL IMAGES:               docker rmi $(docker images -q)
+
+
+TO MIGRATE IN DJANGO:            docker-compose exec web python manage.py migrate   
+       
+
+TO BUILD IMAGE:                  docker-compose up (OR) docker-compose up -d
+
+
+TO PUSH IMAGE TO DOCKER HUB:    - docker login
+				
+			        - docker tag {container_id} {docker_id}/{image_name}:{tag}
+				
+				- docker push {docker_id}/{image_name}			
