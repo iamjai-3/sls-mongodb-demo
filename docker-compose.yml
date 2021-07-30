@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - EDGE_PORT=4566
+      - SERVICES=s3,ec2,apigateway,dynamodb,lambda,iam,cloudformation,sts,sns,sqs,kinesis,cloudwatch,cloudwatch logs,ssm,ses
+      - DEBUG=1
+      - PORT_WEB_UI=${PORT_WEB_UI- }
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
+      - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    ports:
+      - "4566-4597:4566-4597"
+      - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+    volumes:
+      - "${TEMPDIR:-/tmp/localstack}:/temp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

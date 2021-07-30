@@ -3,3 +3,4 @@
   GET - https://jn8rikphl3.execute-api.ap-south-1.amazonaws.com/dev/todos
   PUT - https://jn8rikphl3.execute-api.ap-south-1.amazonaws.com/dev/todos/{id}
   DELETE - https://jn8rikphl3.execute-api.ap-south-1.amazonaws.com/dev/todos/{id}
+

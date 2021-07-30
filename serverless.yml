@@ -11,6 +11,15 @@ provider:
 plugins:
   - serverless-offline
   - serverless-dotenv-plugin
+  - serverless-localstack
+
+custom:
+  localstack:
+    debug: true
+    stages:
+      - local
+      - dev
+    endpointFile: localstack_endpoints.json
 
 functions:
   create:
