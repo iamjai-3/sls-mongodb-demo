@@ -36,7 +36,7 @@ class ApiService {
           };
         }
 
-      case "findOne":
+      case "findById":
         try {
           const todoItem = await eval(`${params.collection}`).findByPk(
             params.body.id
