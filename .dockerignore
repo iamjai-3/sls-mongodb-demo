@@ -2,4 +2,4 @@ node_modules/
 .history/
 .vscode/
 .serverless/
-package-lock.json
+

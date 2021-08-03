@@ -3,7 +3,13 @@ version: "3"
 services:
   localstack:
     image: localstack/localstack:latest
-    command: npm install
+    depends_on:
+      - pg
+      - mongo
+    links:
+      - pg
+      - mongo
+
     environment:
       - AWS_DEFAULT_REGION=us-east-1
       - EDGE_PORT=4566
@@ -16,6 +22,33 @@ services:
     ports:
       - "4566-4597:4566-4597"
       - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
+    env_file:
+      - .env
+
     volumes:
       - "${TEMPDIR:-/tmp/localstack}:/temp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
+
+  pg:
+    image: "postgres" # use latest official postgres version
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin123
+      - POSTGRES_DB=sls_test
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: always
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodbData:/data/db
+
+volumes:
+  pgdata:
+  mongodbData:

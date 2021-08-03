@@ -5,18 +5,25 @@
   "main": "handler.js",
   "scripts": {
     "dev": "sls offline start --port 3000",
+    "start": "nodemon utils/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^2.0.12",
     "serverless-dotenv-plugin": "^3.9.0",
     "serverless-localstack": "^0.4.32",
     "serverless-offline": "^8.0.0"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
-    "mongoose": "^5.13.4"
+    "express": "^4.17.1",
+    "mongoose": "^5.13.4",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.6.5"
   }
 }

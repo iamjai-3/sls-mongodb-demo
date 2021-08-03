@@ -10,13 +10,14 @@ module.exports = connectToDatabase = () => {
   }
 
   return mongoose
-    .connect(process.env.MONGO_CLOUD_URI, {
+    .connect(process.env.MONGO_LOCAL_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
       useCreateIndex: true,
     })
     .then((db) => {
+      console.log("---------->Connected<--------------");
       isConnected = db.connections[0].readyState;
     });
 };

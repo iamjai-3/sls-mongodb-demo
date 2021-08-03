@@ -1,8 +1,8 @@
 {
-  "CloudFormation": "http://localhost:4566",
-  "CloudWatch": "http://localhost:4566",
-  "Lambda": "http://localhost:4566",
-  "S3": "http://localhost:4566",
-  "APIGateway": "http://localhost:4566",
-  "Route53": "http://localhost:4566"
+  "CloudFormation": "http://localstack:4566",
+  "CloudWatch": "http://localstack:4566",
+  "Lambda": "http://localstack:4566",
+  "S3": "http://localstack:4566",
+  "APIGateway": "http://localstack:4566",
+  "Route53": "http://localstack:4566"
 }

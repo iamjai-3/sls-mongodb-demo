@@ -64,3 +64,36 @@ terraform apply --auto-approve
 aws --endpoint-url http://localhost:4566/ lambda invoke --function-name=getFunc  output.txt
 
 docker build . -t terraformTest
+
+
+psql -U postgres -W
+
+CREATE DATABASE sls_test;
+\c sls_test
+
+CREATE TABLE todoitems(
+id SERIAL, 
+title VARCHAR,
+description VARCHAR,
+createdAt date,
+updatedAt date
+);
+
+ CREATE TABLE todoitems(id SERIAL, title VARCHAR, description VARCHAR, createdAt date, updatedAt date)
+
+{
+  "method": "create",
+  "collection": "TodoPgSchema",
+  "body": { "title": "dryreesfsfsfes", "description": "141fssdf412"}
+}
+
+{
+  "method": "findById",
+  "collection": "TodoPgSchema",
+  "body": { "id": "0a090443-3aec-4401-ae94-1072dcb3aa5c"}
+}
+
+{
+  "method": "fetch",
+  "collection": "TodoPgSchema", 
+}

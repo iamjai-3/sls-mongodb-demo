@@ -1,17 +1,6 @@
 service: sls-mongodb-demo
-
+useDotenv: true
 frameworkVersion: "2"
-
-provider:
-  name: aws
-  runtime: nodejs14.x
-  region: ap-south-1
-  lambdaHashingVersion: 20201221
-
-plugins:
-  - serverless-offline
-  - serverless-dotenv-plugin
-  - serverless-localstack
 
 custom:
   localstack:
@@ -21,7 +10,26 @@ custom:
       - dev
     endpointFile: localstack_endpoints.json
 
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs14.x
+  region: ap-south-1
+  lambdaHashingVersion: 20201221
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-localstack
+
 functions:
+  pgCreate:
+    handler: apis/pgApiHandler.create
+    events:
+      - http:
+          path: pgTodos
+          method: post
+          cors: true
   create:
     handler: apis/apiHandler.create
     events:
