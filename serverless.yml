@@ -24,7 +24,7 @@ plugins:
 
 functions:
   pgCreate:
-    handler: apis/pgApiHandler.create
+    handler: apis/handler.create
     events:
       - http:
           path: pgTodos
