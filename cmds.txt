@@ -90,12 +90,12 @@ updatedAt date
 {
   "action": "findById",
   "collection": "Device",
-  "body": { "id": "22296709-9ee9-426b-a5c9-6cfde2f9e65a"}
+  "body": { "id": "1179f502-1336-482e-a082-c54dcec2668a"}
 }
 {
   "action": "update",
   "collection": "Device",
-  "id": "23579211-0df8-4b0d-ba72-f26420148900",
+  "id": "1179f502-1336-482e-a082-c54dcec2668a",
   "body": {"title": "updated1", "description": "updatedDesc1" }
 }
 

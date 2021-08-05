@@ -1,9 +1,9 @@
-const { Device, Things } = require("../models/index");
+const Collections = require("../models/index");
 
 class RepositoryBaseService {
   static create = async (params) => {
     try {
-      const { dataValues } = await eval(`${params.collection}`).create(
+      const { dataValues } = await Collections[params.collection].create(
         params.body
       );
       return dataValues ? this.successResp(dataValues) : this.errorResp(params);
@@ -14,7 +14,7 @@ class RepositoryBaseService {
 
   static update = async (params) => {
     try {
-      const dataValues = await eval(`${params.collection}`).update(
+      const dataValues = await Collections[params.collection].update(
         params.body,
         {
           where: { id: params.id },
@@ -30,8 +30,8 @@ class RepositoryBaseService {
 
   static remove = async (params) => {
     try {
-      const dataValues = await eval(`${params.collection}`).destroy({
-        where: { id: params.id },
+      const dataValues = await Collections[params.collection].destroy({
+        where: { id: params.body.id },
       });
       return dataValues
         ? this.successResp(`Deleted ${params.collection} successfully`)
@@ -43,7 +43,7 @@ class RepositoryBaseService {
 
   static findAll = async (params) => {
     try {
-      const response = await eval(`${params.collection}`).findAll({});
+      const response = await Collections[params.collection].findAll({});
       return response ? this.successResp(response) : this.errorResp(params);
     } catch (error) {
       return this.errorResp(params);
@@ -52,7 +52,7 @@ class RepositoryBaseService {
 
   static findById = async (params) => {
     try {
-      const { dataValues } = await eval(`${params.collection}`).findByPk(
+      const { dataValues } = await Collections[params.collection].findByPk(
         params.body.id
       );
       return dataValues ? this.successResp(dataValues) : this.errorResp(params);
