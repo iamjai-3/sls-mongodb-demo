@@ -23,49 +23,10 @@ plugins:
   - serverless-localstack
 
 functions:
-  pgCreate:
-    handler: apis/handler.create
+  collections:
+    handler: api/collections.manage
     events:
       - http:
-          path: pgTodos
+          path: collection
           method: post
-          cors: true
-  create:
-    handler: apis/apiHandler.create
-    events:
-      - http:
-          path: todos
-          method: post
-          cors: true
-
-  getOne:
-    handler: apis/apiHandler.getOne
-    events:
-      - http:
-          path: todos/{id}
-          method: get
-          cors: true
-
-  getAll:
-    handler: apis/apiHandler.getAll
-    events:
-      - http:
-          path: todos
-          method: get
-          cors: true
-
-  update:
-    handler: apis/apiHandler.update
-    events:
-      - http:
-          path: todos/{id}
-          method: put
-          cors: true
-
-  delete:
-    handler: apis/apiHandler.delete
-    events:
-      - http:
-          path: todos/{id}
-          method: delete
           cors: true

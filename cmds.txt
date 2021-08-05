@@ -82,18 +82,29 @@ updatedAt date
  CREATE TABLE todoitems(id SERIAL, title VARCHAR, description VARCHAR, createdAt date, updatedAt date)
 
 {
-  "method": "create",
-  "collection": "TodoPgSchema",
-  "body": { "title": "dryreesfsfsfes", "description": "141fssdf412"}
+  "action": "create",
+  "collection": "Device",
+  "body": { "title": "testTitle", "description": "Desc1"}
 }
 
 {
-  "method": "findById",
-  "collection": "TodoPgSchema",
-  "body": { "id": "0a090443-3aec-4401-ae94-1072dcb3aa5c"}
+  "action": "findById",
+  "collection": "Device",
+  "body": { "id": "22296709-9ee9-426b-a5c9-6cfde2f9e65a"}
+}
+{
+  "action": "update",
+  "collection": "Device",
+  "id": "23579211-0df8-4b0d-ba72-f26420148900",
+  "body": {"title": "updated1", "description": "updatedDesc1" }
 }
 
 {
-  "method": "fetch",
-  "collection": "TodoPgSchema", 
+  "action": "delete",
+  "collection": "Device",
+  "id": "22296709-9ee9-426b-a5c9-6cfde2f9e65a"  
+}
+{
+  "action": "fetch",
+  "collection": "Device", 
 }

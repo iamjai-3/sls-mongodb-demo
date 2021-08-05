@@ -1,8 +1,8 @@
 "use strict";
 const connectToDatabase = require("../utils/db");
-const ApiService = require("../services/mainService");
+const BaseService = require("../services/BaseService");
 
-module.exports.create = async (event, context, callback) => {
+module.exports.manage = async (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   let params = JSON.parse(event.body);
@@ -10,7 +10,7 @@ module.exports.create = async (event, context, callback) => {
 
   try {
     if (isConnected) {
-      const resp = await ApiService.ApiHandler(params);
+      const resp = await BaseService.Init(params);
       callback(null, {
         statusCode: 200,
         body: JSON.stringify(resp),
@@ -20,7 +20,7 @@ module.exports.create = async (event, context, callback) => {
     callback(null, {
       statusCode: error.statusCode || 500,
       headers: { "Content-Type": "text/plain" },
-      body: "Could not create the item.",
+      body: "Error occurred while connecting to DB",
     });
   }
 };

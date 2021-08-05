@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../utils/pgDB");
 
-const TodoPgSchema = db.define("TodoItems", {
+const Device = db.define("Device", {
   id: {
     type: Sequelize.STRING,
     defaultValue: Sequelize.UUIDV4,
@@ -11,7 +11,7 @@ const TodoPgSchema = db.define("TodoItems", {
   description: Sequelize.STRING,
 });
 
-const testSchema = db.define("TodoItems", {
+const Things = db.define("Things", {
   id: {
     type: Sequelize.STRING,
     defaultValue: Sequelize.UUIDV4,
@@ -20,4 +20,5 @@ const testSchema = db.define("TodoItems", {
   title: Sequelize.STRING,
   description: Sequelize.STRING,
 });
-module.exports = { TodoPgSchema, testSchema };
+
+module.exports = { Device, Things };
