@@ -81,6 +81,9 @@ updatedAt date
 
  CREATE TABLE todoitems(id SERIAL, title VARCHAR, description VARCHAR, createdAt date, updatedAt date)
 
+docker run -e POSTGRES_PASSWORD=admin123  --rm -p 5050:5050 postgres  
+
+
 {
   "action": "create",
   "collection": "Device",
