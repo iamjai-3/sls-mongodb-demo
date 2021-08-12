@@ -11,7 +11,7 @@ services:
       - mongo
 
     environment:
-      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_DEFAULT_REGION=ap-east-1
       - EDGE_PORT=4566
       - SERVICES=s3,ec2,apigateway,dynamodb,lambda,iam,cloudformation,sts,sns,sqs,kinesis,cloudwatch,cloudwatch logs,ssm,ses
       - DEBUG=1
@@ -19,6 +19,7 @@ services:
       - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR- }
       - KINESIS_ERROR_PROBABILITY=${KINESIS_ERROR_PROBABILITY- }
       - DOCKER_HOST=unix:///var/run/docker.sock
+
     ports:
       - "4566-4597:4566-4597"
       - "${PORT_WEB_UI-8080}:${PORT_WEB_UI-8080}"
@@ -30,7 +31,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   pg:
-    image: "postgres" # use latest official postgres version
+    image: "postgres"
     container_name: postgres
     environment:
       - POSTGRES_USER=postgres

@@ -68,6 +68,8 @@ docker build . -t terraformTest
 
 psql -U postgres -W
 
+psql -U pguser iotr
+
 CREATE DATABASE sls_test;
 \c sls_test
 
